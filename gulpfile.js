@@ -12,7 +12,7 @@ console.log('Building for: ' + environment);
 
 var root = path.join(__dirname + '/');
 var dev = root + 'app/';
-var dist = root + 'public/';
+var dist = root + '/';
 var gulpTasks = root + 'gulp/';
 
 // Task imports
@@ -55,8 +55,14 @@ Pug(gulp, {
   production: isProduction
 });
 
+var cleanLocs = [
+  folders.stylus[1],
+  folders.images[1],
+  dist + '*.html'
+];
+
 gulp.task('clean', function (cb) {
-  return del([dist], { force: true }, cb);
+  return del(cleanLocs, { force: true }, cb);
 });
 
 gulp.task('watch', function () {
