@@ -1,0 +1,140 @@
+// Post Header
+
+$heading-glow-size = 2500px
+
+header
+  position relative
+  height $header-height
+  box-shadow 0 2px 5px 0 rgba(0, 0, 0, .5)
+
+  @media mobile-up
+    height $header-height-d
+
+  .wrap
+    position relative
+    left 0
+    right 0
+    margin 0 auto
+    height $header-height
+    z-index 1
+
+    @media mobile-up
+      height $header-height-d
+
+  .grad-blk-fadeup
+    position absolute
+    bottom 0
+    left 0
+    right 0
+    height 60px
+    z-index 0
+
+  .grad-blk-fadeleft
+    position absolute
+    bottom 0
+    top 0
+    right 0
+    width 50px
+    z-index 0
+    opacity .7
+
+.header-bg
+  position absolute
+  top 0
+  left 0
+  right 0
+  background-position center center
+  background-repeat no-repeat
+  height 100%
+  z-index 0
+
+.header-heading
+  font-family $font-heading
+  font-weight 300
+  position absolute
+  z-index 1
+  bottom 0
+  left 0
+  padding 10px 15px
+  color #fff
+  font-size 20px
+  overflow hidden
+  opacity .8
+  transition opacity .3s
+
+  &:before
+    content ''
+    position absolute
+    top 100%
+    left 50%
+    height $heading-glow-size
+    width $heading-glow-size
+    box-shadow 0 0 10px 5px rgba(255, 255, 255, 1)
+    opacity 0
+    border-radius $heading-glow-size
+    transform translateX(-50%)
+    transition opacity .3s
+
+  @media mobile-up
+    opacity .7
+
+    &:hover
+      text-decoration none
+      opacity 1
+
+      &:before
+        opacity 1
+
+.header-icons
+  display block
+  position absolute
+  bottom -7px
+  right 0
+  padding 10px 10px
+  text-align right
+
+  @media mobile-up
+    padding 10px 15px
+
+.header-icon
+  font-size 32px
+  color #fff
+  opacity 1
+  display block
+  margin-left 3px
+  opacity .8
+
+header-icon
+  position relative
+  color #fff
+
+  .header-icon-label
+    text-align right
+    clear both
+    overflow hidden
+    white-space nowrap
+    color #fff
+    font-size 14px
+    position absolute
+    top -5px
+    left auto
+    right 25px
+    padding-right 5px
+    transform-origin 100% 100%
+    opacity 0
+    transform translate(0, 50%) rotate(90deg)
+    transition opacity .2s, transform .2s
+
+@media mobile-up
+  .header-icon
+    display inline-block
+    font-size 28px
+    opacity .6
+
+    &:hover
+      opacity 1
+
+      header-icon
+        .header-icon-label
+          opacity 1
+          transform translate(0, 0) rotate(45deg)

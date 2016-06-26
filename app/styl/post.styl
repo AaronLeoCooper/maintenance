@@ -1,0 +1,67 @@
+// Post (detail)
+
+.post-top
+  text-align center
+
+  .post-heading
+    display inline-block
+
+    h1,
+    .h1
+      margin 0
+
+.post-datetime
+  color $color-text-faded
+  font-family $font-heading
+  display block
+  text-align center
+  font-size 14px
+
+.post-technologies
+  position relative
+  display block
+  text-align center
+  padding 30px 0
+
+.post-tech-icon
+  position relative
+  display inline-block
+  background-color #c9c9c9
+  color #fff
+  font-family $font-heading
+  width 40px
+  height 40px
+  border-radius 20px
+  font-size 12px
+  text-align center
+  margin 0 5px
+  overflow hidden
+
+  span
+    display block
+    position absolute
+    left 0
+    right 0
+    top 50%
+    transform translate(0, -50%)
+    text-align center
+    font-family inherit
+
+.post-new-badge
+  font-family $font-heading
+  position absolute
+  right 100%
+  top 0
+  font-size 12px
+  background #46DD99
+  border-radius 5px
+  padding 2px 5px
+  padding-top 0
+  transform rotate($is-new-rotation)
+  color #fff
+
+.post-intro
+  text-align center
+  font-size 22px
+  line-height 1.5em
+  font-style italic

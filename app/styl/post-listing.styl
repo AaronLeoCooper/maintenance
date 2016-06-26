@@ -1,0 +1,283 @@
+// Post List
+
+$thumb-size = 200px
+$pl-left-width = $thumb-size
+
+@keyframes rocking
+  0%, 100%
+    transform rotate($is-new-rotation)
+
+  33%
+    transform rotate($is-new-rotation + 10)
+
+  67%
+    transform rotate($is-new-rotation - 10)
+
+
+.post-listing
+  clearfix()
+  position relative
+  display block
+  margin 30px 0
+
+  a
+    position relative
+    display block
+    text-decoration none
+
+    tech-badge .post-tech-icon
+      transform scale(1)
+      box-shadow 0 1px 3px 0 rgba(0, 0, 0, 0)
+
+    tech-badge:nth-child(1) .post-tech-icon
+      transition transform .3s, box-shadow .3s
+
+    tech-badge:nth-child(2) .post-tech-icon
+      transition transform .6s, box-shadow .6s
+
+    tech-badge:nth-child(3) .post-tech-icon
+      transition transform .9s, box-shadow .9s
+
+    tech-badge:nth-child(4) .post-tech-icon
+      transition transform 1.2s, box-shadow 1.2s
+
+    .post-new-badge
+      transform rotate($is-new-rotation)
+
+    &:hover
+      text-decoration none
+
+      tech-badge .post-tech-icon
+        transform scale(1.1)
+        box-shadow 0 1px 3px 0 rgba(0, 0, 0, .5)
+
+      .post-new-badge
+        animation rocking .5s 1
+
+.post-listing-left,
+.post-listing-right
+  display block
+  position relative
+
+.post-listing-left
+  width 100%
+  text-align center
+
+  @media mobile-up
+    width $pl-left-width
+
+.post-listing-right
+  text-align center
+  padding-top 25px
+  padding-bottom 20px
+
+  @media mobile-up
+    text-align left
+    position absolute
+    padding-top 0
+    padding-bottom 0
+    padding-left 40px
+    top 50%
+    right 0
+    left $thumb-size
+    transform translateY(-50%)
+
+.post-listing-thumb
+  display inline-block
+  width $thumb-size
+  height $thumb-size
+  border-radius $thumb-size
+
+.post-listing-heading,
+.post-listing-datetime,
+.post-listing-technologies
+  text-align left
+
+.post-listing-heading
+  display inline-block
+  margin-top 0
+
+  @media mobile-up
+    display block
+
+  .h1
+    font-family $font-main
+    font-size 30px
+    margin 0
+    padding 0
+
+  .post-new-badge
+    left -20px
+    right auto
+    top -10px
+
+.post-listing-datetime
+  padding 5px 0 8px
+  text-align center
+
+  @media mobile-up
+    text-align left
+
+.post-listing-intro
+  margin 0
+  font-size 18px
+  line-height 1.5em
+
+.post-listing-technologies
+  position absolute
+
+  .post-tech-icon
+    float none
+
+  @media mobile
+    top auto
+    bottom 0
+    left 0
+    right 0
+    text-align center
+
+    .post-tech-icon
+      display inline-block
+
+    $ti-horzspacing-1 = 6px
+    $ti-horzspacing-2 = 4px
+    $ti-horzspacing-3 = 0px
+    $ti-horzspacing-4 = 1px
+
+    $ti-top-1 = 16px
+    $ti-top-2 = 12px
+    $ti-top-3 = 2px
+    $ti-top-4 = -15px
+
+    &.count-1
+      tech-badge
+        .post-tech-icon
+          top $ti-top-1
+
+    &.count-2
+      .post-tech-icon
+        margin 0 $ti-horzspacing-2
+
+      tech-badge:nth-child(1)
+        .post-tech-icon
+          top $ti-top-2
+
+      tech-badge:nth-child(2)
+        .post-tech-icon
+          top $ti-top-2
+
+    &.count-3
+      .post-tech-icon
+        margin 0 $ti-horzspacing-2
+
+      tech-badge:nth-child(1),
+      tech-badge:nth-child(3)
+        .post-tech-icon
+          top $ti-top-3
+
+      tech-badge:nth-child(2)
+        .post-tech-icon
+          top $ti-top-1
+
+    &.count-4
+      .post-tech-icon
+        margin 0 $ti-horzspacing-4
+
+      tech-badge:nth-child(2)
+        .post-tech-icon
+          margin-right $ti-horzspacing-2
+
+      tech-badge:nth-child(3)
+        .post-tech-icon
+          margin-left $ti-horzspacing-2
+
+      tech-badge:nth-child(1),
+      tech-badge:nth-child(4)
+        .post-tech-icon
+          top $ti-top-4
+
+      tech-badge:nth-child(2),
+      tech-badge:nth-child(3)
+        .post-tech-icon
+          top $ti-top-2
+
+
+  @media mobile-up
+    top 50%
+    right 0
+    transform translateY(-50%)
+
+    .post-tech-icon
+      display block
+
+    $ti-vertspacing-1 = 12px
+    $ti-vertspacing-2 = 8px
+    $ti-vertspacing-3 = 4px
+
+    $ti-left-1 = 35px
+    $ti-left-2 = 20px
+    $ti-left-3 = -8px
+
+    $ti-right-1 = -20px
+    $ti-right-2 = -15px
+    $ti-right-3 = -10px
+
+    &.count-1
+      right $ti-right-1
+
+      tech-badge
+        .post-tech-icon
+          margin-left $ti-left-1
+
+    &.count-2
+      right $ti-right-2
+
+      .post-tech-icon
+        margin $ti-vertspacing-1 0
+
+      tech-badge:nth-child(1)
+        .post-tech-icon
+          margin-left $ti-left-2
+
+      tech-badge:nth-child(2)
+        .post-tech-icon
+          margin-left $ti-left-2
+
+    &.count-3
+      right $ti-right-1
+
+      .post-tech-icon
+        margin $ti-vertspacing-2 0
+
+      tech-badge:nth-child(1),
+      tech-badge:nth-child(3)
+        .post-tech-icon
+          margin-left $ti-left-2
+
+      tech-badge:nth-child(2)
+        .post-tech-icon
+          margin-left $ti-left-1
+
+    &.count-4
+      right $ti-right-2
+
+      .post-tech-icon
+        margin $ti-vertspacing-3 0
+
+      tech-badge:nth-child(2)
+        .post-tech-icon
+          margin-bottom $ti-vertspacing-1
+
+      tech-badge:nth-child(1),
+      tech-badge:nth-child(4)
+        .post-tech-icon
+          margin-left $ti-left-3
+
+      tech-badge:nth-child(2),
+      tech-badge:nth-child(3)
+        .post-tech-icon
+          margin-left $ti-left-2
+
+.post-list-morecoming
+  padding-top 10px
+  text-align center
